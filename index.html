@@ -1,62 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>My Money Mate - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My MoneyMate</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">
+          <h1>MyMoneyMate</h1>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="#">Budget</a></li>
+          <li><a href="#">Savings</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+        <div class="auth-buttons">
+          <button class="login-btn">Login</button>
+          <button class="signup-btn">Sign Up</button>
+        </div>
+      </div>
+    </nav>
 
-    <!-- Google Font (optioneel als je het wil gebruiken) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <main class="app-container">
-        <!-- Logo + Titel -->
-        <header class="app-header">
-            <div class="logo">
-                <img src="logo.png" alt="My Money Mate logo" />
-                <h1>My Money Mate</h1>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Take Control of Your <span>Financial Future</span></h1>
+        <p>
+          Simple tools to help students track spending, create budgets, and save
+          more effectively.
+        </p>
+        <div class="hero-buttons">
+          <button class="primary-btn">Get Started</button>
+          <button class="secondary-btn">Learn More</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+          alt="Student managing finances on laptop"
+        />
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <h2>Manage Your Money With Ease</h2>
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-overlay"></div>
+          <div class="feature-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h3>Budget Tracking</h3>
+          <p>
+            Create customized budgets tailored to your student lifestyle and
+            track your spending in real-time.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-overlay"></div>
+          <div class="feature-icon">
+            <i class="fas fa-piggy-bank"></i>
+          </div>
+          <h3>Savings Goals</h3>
+          <p>
+            Set up personal savings targets and watch your progress with visual
+            progress trackers.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-overlay"></div>
+          <div class="feature-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Student Discounts</h3>
+          <p>
+            Discover exclusive discounts and offers specifically for students to
+            help your money go further.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-overlay"></div>
+          <div class="feature-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Financial Tips</h3>
+          <p>
+            Get personalized advice and learning resources to improve your
+            financial literacy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section
+      class="how-it-works"
+      style="background-size: cover; background-attachment: fixed"
+    >
+      <div class="section-overlay"></div>
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Create Your Account</h3>
+          <p>Sign up in less than 2 minutes with your student email.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Set Your Budget</h3>
+          <p>Define your income sources and allocate spending categories.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Track Expenses</h3>
+          <p>Record your spending with our easy-to-use interface.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Grow Your Savings</h3>
+          <p>Watch your financial health improve with smart insights.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <h2>What Students Say</h2>
+      <div class="testimonial-container">
+        <div class="testimonial">
+          <div class="quote">
+            "My MoneyMate helped me save enough for my semester abroad. The
+            budget templates are perfect for students."
+          </div>
+          <div class="student">
+            <div class="avatar"></div>
+            <div class="student-info">
+              <h4>Emma R.</h4>
+              <p>Computer Science, Year 3</p>
             </div>
-            <div class="date">01. April 2025</div>
-        </header>
-
-        <!-- Balans -->
-        <section class="balance-section">
-            <h2>Your Balance</h2>
-            <p id="balance" class="balance-amount">$1,234.56</p>
-        </section>
-
-        <!-- Grafieken -->
-        <section class="graph-section">
-            <h2>Spending Overview</h2>
-            <div id="spending-bar" class="graph-bar"></div>
-            <h2>Savings Overview</h2>
-            <div id="savings-bar" class="graph-bar"></div>
-        </section>
-
-        <!-- Chat -->
-        <section class="chat-section">
-            <h2>Ask Our AI</h2>
-            <div id="chat-messages" class="chat-messages">
-                <p><strong>AI:</strong> Hello! How can I help?</p>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="quote">
+            "I never thought I could save money as a student until I started
+            using this platform. The visual trackers keep me motivated."
+          </div>
+          <div class="student">
+            <div class="avatar"></div>
+            <div class="student-info">
+              <h4>Michael T.</h4>
+              <p>Business Studies, Year 2</p>
             </div>
-            <div class="chat-input-group">
-                <input type="text" id="user-input" placeholder="Type your message..." />
-                <button id="send-button">Send</button>
-            </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Menu -->
-        <nav class="menu-section">
-            <button>Budget</button>
-            <button>Goals</button>
-            <button>Jobs</button>
-        </nav>
-    </main>
+    <!-- CTA Section -->
+    <section
+      class="cta"
+      style="background-size: cover; background-position: center"
+    >
+      <div class="cta-overlay"></div>
+      <div class="cta-content">
+        <h2>Ready to master your finances?</h2>
+        <p>
+          Join thousands of students already using MyMoneyMate to manage their
+          money better.
+        </p>
+        <button class="cta-btn">Start For Free</button>
+      </div>
+    </section>
 
-    <!-- JavaScript -->
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>MyMoneyMate</h2>
+          <p>Financial wellness for students</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3>Product</h3>
+            <ul>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Guides</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Security</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MyMoneyMate. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Chatbot Floating Action Button -->
+    <div class="chat-button" id="chatButton">
+      <div class="chat-icon">
+        <i class="fas fa-comment"></i>
+      </div>
+    </div>
+    <div class="chat-popup" id="chatPopup">
+      <div class="chat-header">
+        <h3>FinBot</h3>
+        <button id="closeChat"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="bot-message">
+          <p>
+            Hi there! 👋 I'm FinBot, your personal finance assistant. How can I
+            help you manage your student finances today?
+          </p>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="userMessage"
+          placeholder="Type your question..."
+        />
+        <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

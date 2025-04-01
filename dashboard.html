@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyMoneyMate Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="dashboard-body">
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">
+          <h1>MyMoneyMate</h1>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="#">Budget</a></li>
+          <li><a href="#">Savings</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+        <div class="user-profile">
+          <div class="user-level">
+            <span class="level-badge">Level 12</span>
+          </div>
+          <div class="user-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+              alt="User Avatar"
+            />
+          </div>
+          <div class="user-info">
+            <span class="user-name">Bob Williams</span>
+            <span class="user-title">Finance Master</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="user-progress">
+          <div class="user-avatar-large">
+            <img
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+              alt="User Avatar"
+            />
+          </div>
+          <div class="progress-container">
+            <div class="progress-info">
+              <span>Next level</span>
+              <span>67%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 67%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-menu">
+          <a href="#" class="sidebar-item active">
+            <i class="fas fa-chart-line"></i>
+            <span>Overview</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-wallet"></i>
+            <span>Accounts</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-chart-pie"></i>
+            <span>Budgets</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-piggy-bank"></i>
+            <span>Savings</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-tasks"></i>
+            <span>Challenges</span>
+            <span class="badge">3</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-award"></i>
+            <span>Achievements</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-exchange-alt"></i>
+            <span>Transactions</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </div>
+
+        <div class="achievement-showcase">
+          <h3>Recent Achievements</h3>
+          <div class="achievements-grid">
+            <div
+              class="achievement-badge unlocked"
+              title="Budget Master: Created your first budget"
+            >
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <div
+              class="achievement-badge unlocked"
+              title="Saving Star: Reached first savings goal"
+            >
+              <i class="fas fa-star"></i>
+            </div>
+            <div
+              class="achievement-badge unlocked"
+              title="Streak Keeper: 7-day login streak"
+            >
+              <i class="fas fa-fire"></i>
+            </div>
+            <div
+              class="achievement-badge"
+              title="Money Guru: Complete all financial lessons"
+            >
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div
+              class="achievement-badge"
+              title="Thrifty Spender: Stay under budget for 3 months"
+            >
+              <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <div
+              class="achievement-badge"
+              title="Financial Wizard: Maintain emergency fund"
+            >
+              <i class="fas fa-magic"></i>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Dashboard Content -->
+      <main class="dashboard-main">
+        <!-- Date and User Info Bar -->
+        <div class="dashboard-header">
+          <div class="date-display">
+            <i class="far fa-calendar-alt"></i>
+            <span id="currentDate">Tuesday, April 1, 2025</span>
+            <script>
+              // Display the current date
+              document.addEventListener('DOMContentLoaded', function() {
+                const dateElement = document.getElementById('currentDate');
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                dateElement.textContent = new Date().toLocaleDateString(undefined, options);
+              });
+            </script>
+          </div>
+          <div class="header-actions">
+            <button class="challenge-btn">
+              <i class="fas fa-trophy"></i>
+              Daily Challenge
+            </button>
+            <div class="notification-bell">
+              <i class="far fa-bell"></i>
+              <span class="notification-badge">2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Financial Summary -->
+        <div class="financial-summary">
+          <div class="summary-card">
+            <div class="card-icon green">
+              <i class="fas fa-wallet"></i>
+            </div>
+            <div class="card-info">
+              <h3>Total Balance</h3>
+              <p class="amount">$2,459.65</p>
+              <span class="trend positive"
+                ><i class="fas fa-arrow-up"></i> 12% from last month</span
+              >
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="card-icon blue">
+              <i class="fas fa-coins"></i>
+            </div>
+            <div class="card-info">
+              <h3>Monthly Income</h3>
+              <p class="amount">$1,850.00</p>
+              <span class="streak"
+                >3 month streak <i class="fas fa-fire"></i
+              ></span>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="card-icon purple">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="card-info">
+              <h3>Monthly Spending</h3>
+              <p class="amount">$1,248.32</p>
+              <span class="trend negative"
+                ><i class="fas fa-arrow-up"></i> 8% from last month</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Budget vs Actual Chart -->
+        <div class="dashboard-section">
+          <div class="section-header">
+            <h2>Budget vs. Actual Spending</h2>
+            <div class="section-actions">
+              <select id="budgetPeriod">
+                <option value="this-month">This Month</option>
+                <option value="last-month">Last Month</option>
+                <option value="3-months">Last 3 Months</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="chart-container budget-chart">
+            <canvas id="budgetChart"></canvas>
+          </div>
+
+          <div class="budget-status">
+            <div class="status-item">
+              <span class="status-label">Budget Status:</span>
+              <span class="status-value positive">On Track</span>
+            </div>
+            <div class="status-item">
+              <span class="status-label">Remaining Budget:</span>
+              <span class="status-value">$602.00</span>
+            </div>
+            <div class="status-item">
+              <span class="status-label">Days Left:</span>
+              <span class="status-value">15</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Savings Goals -->
+        <div class="dashboard-section">
+          <div class="section-header">
+            <h2>Savings Goals</h2>
+            <div class="section-actions">
+              <button class="add-goal-btn">
+                <i class="fas fa-plus"></i> Add Goal
+              </button>
+            </div>
+          </div>
+
+          <div class="savings-goals">
+            <div class="goal-card">
+              <div class="goal-icon">
+                <i class="fas fa-plane"></i>
+              </div>
+              <div class="goal-info">
+                <h3>Summer Trip</h3>
+                <div class="goal-progress-bar">
+                  <div class="goal-progress" style="width: 75%"></div>
+                </div>
+                <div class="goal-stats">
+                  <span>$1,500 / $2,000</span>
+                  <span>75%</span>
+                </div>
+                <p class="goal-date">Target: June 15, 2025</p>
+              </div>
+              <div class="goal-actions">
+                <button class="add-funds-btn">Add Funds</button>
+              </div>
+            </div>
+
+            <div class="goal-card">
+              <div class="goal-icon">
+                <i class="fas fa-laptop"></i>
+              </div>
+              <div class="goal-info">
+                <h3>New Laptop</h3>
+                <div class="goal-progress-bar">
+                  <div class="goal-progress" style="width: 45%"></div>
+                </div>
+                <div class="goal-stats">
+                  <span>$540 / $1,200</span>
+                  <span>45%</span>
+                </div>
+                <p class="goal-date">Target: August 30, 2025</p>
+              </div>
+              <div class="goal-actions">
+                <button class="add-funds-btn">Add Funds</button>
+              </div>
+            </div>
+
+            <div class="goal-card">
+              <div class="goal-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="goal-info">
+                <h3>Emergency Fund</h3>
+                <div class="goal-progress-bar">
+                  <div class="goal-progress" style="width: 25%"></div>
+                </div>
+                <div class="goal-stats">
+                  <span>$625 / $2,500</span>
+                  <span>25%</span>
+                </div>
+                <p class="goal-date">Target: December 31, 2025</p>
+              </div>
+              <div class="goal-actions">
+                <button class="add-funds-btn">Add Funds</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="dashboard-section">
+          <div class="section-header">
+            <h2>Recent Transactions</h2>
+            <div class="section-actions">
+              <button class="transaction-filter-btn">
+                <i class="fas fa-filter"></i> Filter
+              </button>
+              <button class="view-all-btn">View All</button>
+            </div>
+          </div>
+
+          <div class="transactions-list">
+            <div class="transaction-item">
+              <div class="transaction-icon food">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="transaction-details">
+                <div class="transaction-info">
+                  <h4>Campus Café</h4>
+                  <span class="transaction-category">Food & Drink</span>
+                </div>
+                <div class="transaction-amount negative">-$12.50</div>
+              </div>
+              <div class="transaction-date">Today, 11:23 AM</div>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon transport">
+                <i class="fas fa-bus"></i>
+              </div>
+              <div class="transaction-details">
+                <div class="transaction-info">
+                  <h4>Monthly Transit Pass</h4>
+                  <span class="transaction-category">Transport</span>
+                </div>
+                <div class="transaction-amount negative">-$65.00</div>
+              </div>
+              <div class="transaction-date">Yesterday, 09:15 AM</div>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon income">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <div class="transaction-details">
+                <div class="transaction-info">
+                  <h4>Campus Library Job</h4>
+                  <span class="transaction-category">Income</span>
+                </div>
+                <div class="transaction-amount positive">+$230.50</div>
+              </div>
+              <div class="transaction-date">Mar 30, 2025</div>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon entertainment">
+                <i class="fas fa-film"></i>
+              </div>
+              <div class="transaction-details">
+                <div class="transaction-info">
+                  <h4>Cinema Tickets</h4>
+                  <span class="transaction-category">Entertainment</span>
+                </div>
+                <div class="transaction-amount negative">-$22.75</div>
+              </div>
+              <div class="transaction-date">Mar 29, 2025</div>
+            </div>
+
+            <div class="transaction-item">
+              <div class="transaction-icon shopping">
+                <i class="fas fa-shopping-bag"></i>
+              </div>
+              <div class="transaction-details">
+                <div class="transaction-info">
+                  <h4>Campus Bookstore</h4>
+                  <span class="transaction-category">Shopping</span>
+                </div>
+                <div class="transaction-amount negative">-$54.99</div>
+              </div>
+              <div class="transaction-date">Mar 28, 2025</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Challenges -->
+        <div class="dashboard-section">
+          <div class="section-header">
+            <h2>Financial Challenges</h2>
+            <div class="section-actions">
+              <span class="streak-counter"
+                ><i class="fas fa-fire"></i> 7 Day Streak</span
+              >
+            </div>
+          </div>
+
+          <div class="challenges-container">
+            <div class="challenge-card active">
+              <div class="challenge-header">
+                <span class="challenge-badge">Daily</span>
+                <span class="challenge-reward">+25 XP</span>
+              </div>
+              <h3>No-Spend Tuesday</h3>
+              <p>Complete the day without any unnecessary purchases</p>
+              <div class="challenge-progress">
+                <div class="progress-bar">
+                  <div class="progress" style="width: 75%"></div>
+                </div>
+                <span>18 hours left</span>
+              </div>
+            </div>
+
+            <div class="challenge-card">
+              <div class="challenge-header">
+                <span class="challenge-badge">Weekly</span>
+                <span class="challenge-reward">+100 XP</span>
+              </div>
+              <h3>Budget Master</h3>
+              <p>Stay under budget in all categories for a week</p>
+              <div class="challenge-progress">
+                <div class="progress-bar">
+                  <div class="progress" style="width: 40%"></div>
+                </div>
+                <span>4 days left</span>
+              </div>
+            </div>
+
+            <div class="challenge-card">
+              <div class="challenge-header">
+                <span class="challenge-badge">Monthly</span>
+                <span class="challenge-reward">+500 XP</span>
+              </div>
+              <h3>Super Saver</h3>
+              <p>Save at least 20% of your monthly income</p>
+              <div class="challenge-progress">
+                <div class="progress-bar">
+                  <div class="progress" style="width: 15%"></div>
+                </div>
+                <span>15% of 20% goal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Right Sidebar -->
+      <aside class="dashboard-right-sidebar">
+        <!-- Monthly Budget Overview -->
+        <div class="sidebar-section">
+          <h3>Monthly Budget</h3>
+          <div class="budget-overview">
+            <div class="budget-chart-container">
+              <canvas id="budgetDoughnutChart"></canvas>
+            </div>
+            <div class="budget-legend">
+              <div class="legend-item">
+                <span class="color-dot housing"></span>
+                <span class="legend-label">Housing</span>
+                <span class="legend-value">$600</span>
+              </div>
+              <div class="legend-item">
+                <span class="color-dot food"></span>
+                <span class="legend-label">Food</span>
+                <span class="legend-value">$350</span>
+              </div>
+              <div class="legend-item">
+                <span class="color-dot transport"></span>
+                <span class="legend-label">Transport</span>
+                <span class="legend-value">$150</span>
+              </div>
+              <div class="legend-item">
+                <span class="color-dot education"></span>
+                <span class="legend-label">Education</span>
+                <span class="legend-value">$200</span>
+              </div>
+              <div class="legend-item">
+                <span class="color-dot entertainment"></span>
+                <span class="legend-label">Entertainment</span>
+                <span class="legend-value">$100</span>
+              </div>
+              <div class="legend-item">
+                <span class="color-dot other"></span>
+                <span class="legend-label">Other</span>
+                <span class="legend-value">$150</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Friends Activity -->
+        <div class="sidebar-section">
+          <h3>Friends Activity</h3>
+          <div class="friends-leaderboard">
+            <div class="friend-item">
+              <div class="friend-rank">1</div>
+              <div class="friend-avatar">
+                <img
+                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=50&q=80"
+                  alt="Friend avatar"
+                />
+              </div>
+              <div class="friend-info">
+                <span class="friend-name">Sarah K.</span>
+                <div class="friend-stats">
+                  <span class="friend-level">Level 15</span>
+                  <span class="friend-achievement"
+                    ><i class="fas fa-trophy"></i> 5</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="friend-item">
+              <div class="friend-rank">2</div>
+              <div class="friend-avatar">
+                <img
+                  src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=50&q=80"
+                  alt="Friend avatar"
+                />
+              </div>
+              <div class="friend-info">
+                <span class="friend-name">Miguel R.</span>
+                <div class="friend-stats">
+                  <span class="friend-level">Level 14</span>
+                  <span class="friend-achievement"
+                    ><i class="fas fa-trophy"></i> 4</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="friend-item current-user">
+              <div class="friend-rank">3</div>
+              <div class="friend-avatar">
+                <img
+                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=50&q=80"
+                  alt="Your avatar"
+                />
+              </div>
+              <div class="friend-info">
+                <span class="friend-name">You</span>
+                <div class="friend-stats">
+                  <span class="friend-level">Level 12</span>
+                  <span class="friend-achievement"
+                    ><i class="fas fa-trophy"></i> 3</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="friend-item">
+              <div class="friend-rank">4</div>
+              <div class="friend-avatar">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=50&q=80"
+                  alt="Friend avatar"
+                />
+              </div>
+              <div class="friend-info">
+                <span class="friend-name">Jenna T.</span>
+                <div class="friend-stats">
+                  <span class="friend-level">Level 10</span>
+                  <span class="friend-achievement"
+                    ><i class="fas fa-trophy"></i> 2</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="add-friend-btn">
+            <i class="fas fa-user-plus"></i> Add Friends
+          </button>
+        </div>
+
+        <!-- Financial Tips -->
+        <div class="sidebar-section">
+          <h3>Financial Tip of the Day</h3>
+          <div class="finance-tip">
+            <div class="tip-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <p class="tip-text">
+              Try the 50/30/20 rule: 50% for necessities, 30% for wants, and 20%
+              for savings and debt repayment.
+            </p>
+            <button class="next-tip-btn">Next Tip</button>
+          </div>
+        </div>
+
+        <!-- Upcoming Bills -->
+        <div class="sidebar-section">
+          <h3>Upcoming Bills</h3>
+          <div class="upcoming-bills">
+            <div class="bill-item">
+              <div class="bill-icon">
+                <i class="fas fa-home"></i>
+              </div>
+              <div class="bill-details">
+                <span class="bill-name">Rent</span>
+                <span class="bill-amount">$600</span>
+              </div>
+              <span class="bill-date">Due in 5 days</span>
+            </div>
+            <div class="bill-item">
+              <div class="bill-icon">
+                <i class="fas fa-wifi"></i>
+              </div>
+              <div class="bill-details">
+                <span class="bill-name">Internet</span>
+                <span class="bill-amount">$45</span>
+              </div>
+              <span class="bill-date">Due in 12 days</span>
+            </div>
+            <div class="bill-item">
+              <div class="bill-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="bill-details">
+                <span class="bill-name">Phone</span>
+                <span class="bill-amount">$35</span>
+              </div>
+              <span class="bill-date">Due in 18 days</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Chatbot Floating Action Button -->
+    <div class="chat-button" id="chatButton">
+      <div class="chat-icon">
+        <i class="fas fa-comment"></i>
+      </div>
+    </div>
+    <div class="chat-popup" id="chatPopup">
+      <div class="chat-header">
+        <h3>FinBot</h3>
+        <button id="closeChat"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="bot-message">
+          <p>
+            Hi there! 👋 I'm FinBot, your personal finance assistant. I see
+            you're checking your dashboard. Do you need help with your budget or
+            savings goals?
+          </p>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="userMessage"
+          placeholder="Type your question..."
+        />
+        <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+
+    <!-- Mobile Dashboard Header - Add this as the first child of .dashboard-main -->
+    <div class="mobile-dashboard-header">
+      <div class="header-user-info">
+        <div class="mobile-avatar">
+          <img
+            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+            alt="User Avatar"
+          />
+        </div>
+        <div class="mobile-user-details">
+          <div class="mobile-user-name">Bob</div>
+          <div class="mobile-user-level">
+            <span class="mobile-level-badge">Level 12</span>
+            <span>Finance Master</span>
+          </div>
+        </div>
+      </div>
+      <div class="notification-bell">
+        <i class="far fa-bell"></i>
+        <span class="notification-badge">2</span>
+      </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

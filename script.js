@@ -1,57 +1,89 @@
-const balanceDisplay = document.getElementById('balance');
-const spendingBar = document.getElementById('spending-bar');
-const savingsBar = document.getElementById('savings-bar');
-const chatMessages = document.getElementById('chat-messages');
-const userInput = document.getElementById('user-input');
-const sendButton = document.getElementById('send-button');
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
 
-function updateBalance() {
-    const randomChange = Math.random() * 100 - 50;
-    const currentBalance = parseFloat(balanceDisplay.textContent.replace('$', '').replace(',', ''));
-    const newBalance = (currentBalance + randomChange).toFixed(2);
-    balanceDisplay.textContent = `$${newBalance}`;
-}
+    mobileMenu.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
 
-function updateGraph(graphBar) {
-    graphBar.style.width = `${Math.random() * 80 + 20}%`;
-}
+    // Chatbot Functionality
+    const chatButton = document.getElementById('chatButton');
+    const chatPopup = document.getElementById('chatPopup');
+    const closeChat = document.getElementById('closeChat');
+    const sendMessage = document.getElementById('sendMessage');
+    const userMessage = document.getElementById('userMessage');
+    const chatMessages = document.getElementById('chatMessages');
 
-function addChatMessage(message, sender = 'AI') {
-    const newMessage = document.createElement('p');
-    newMessage.innerHTML = `<strong>${sender}:</strong> ${message}`;
-    chatMessages.appendChild(newMessage);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
+    // Toggle chat popup
+    chatButton.addEventListener('click', function() {
+        chatPopup.style.display = chatPopup.style.display === 'flex' ? 'none' : 'flex';
+    });
 
-function handleChatInput() {
-    const message = userInput.value.trim();
-    if (!message) return;
+    // Close chat popup
+    closeChat.addEventListener('click', function() {
+        chatPopup.style.display = 'none';
+    });
 
-    addChatMessage(message, 'You');
-    userInput.value = '';
+    // Send message functionality
+    sendMessage.addEventListener('click', sendUserMessage);
+    userMessage.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendUserMessage();
+        }
+    });
 
-    const lower = message.toLowerCase();
-
-    if (lower.includes('balance')) {
-        addChatMessage(`Your current balance is ${balanceDisplay.textContent}`);
-    } else if (lower.includes('spending')) {
-        addChatMessage('Updating your spending graph...');
-        updateGraph(spendingBar);
-    } else if (lower.includes('savings')) {
-        addChatMessage('Updating your savings graph...');
-        updateGraph(savingsBar);
-    } else {
-        addChatMessage("I'm not sure how to help with that. Try asking about your balance, spending, or savings.");
+    function sendUserMessage() {
+        const message = userMessage.value.trim();
+        
+        if (message !== '') {
+            // Add user message to chat
+            addMessage('user', message);
+            
+            // Clear input
+            userMessage.value = '';
+            
+            // Simulate bot response (in a real app, this would call your backend)
+            setTimeout(function() {
+                botResponse(message);
+            }, 600);
+        }
     }
-}
 
-setInterval(updateBalance, 5000);
-setInterval(() => updateGraph(spendingBar), 3000);
-setInterval(() => updateGraph(savingsBar), 4000);
-
-sendButton.addEventListener('click', handleChatInput);
-userInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        handleChatInput();
+    function addMessage(sender, text) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
+        
+        const messageText = document.createElement('p');
+        messageText.textContent = text;
+        
+        messageDiv.appendChild(messageText);
+        chatMessages.appendChild(messageDiv);
+        
+        // Scroll to the bottom of the chat
+        chatMessages.scrollTop = chatMessages.scrollHeight;
     }
+
+    function botResponse(userText) {
+        let response = '';
+        
+        // Simple response logic - in a real app, this would be much more sophisticated
+        if (userText.toLowerCase().includes('budget') || userText.toLowerCase().includes('spending')) {
+            response = "I can help you create a budget! You can set up spending categories and track your expenses easily with our budget tool.";
+        } else if (userText.toLowerCase().includes('save') || userText.toLowerCase().includes('saving')) {
+            response = "Setting savings goals is a great idea! You can create specific goals and track your progress over time.";
+        } else if (userText.toLowerCase().includes('discount') || userText.toLowerCase().includes('deal')) {
+            response = "We have a section dedicated to student discounts! Check out the 'Student Discounts' feature to find deals on everything from software to food.";
+        } else {
+            response = "Thanks for your message! Our full financial advice features will be available in the next version. Is there anything specific about student finances you'd like to know?";
+        }
+        
+        addMessage('bot', response);
+    }
+
+    // For demo purposes - add a welcome message after a slight delay
+    setTimeout(function() {
+        // The welcome message is already in the HTML
+    }, 500);
 });
