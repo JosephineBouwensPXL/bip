@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyMoneyMate - Job Board</title>
+    <link rel="stylesheet" href="style/styles.css" />
+    <link rel="stylesheet" href="style/dashboard.css" />
+    <link rel="stylesheet" href="style/jobs.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="dashboard-body">
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">
+          <h1>MyMoneyMate</h1>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="jobs.html" class="active">Jobs</a></li>
+        </ul>
+        <div class="user-profile">
+          <div class="user-level">
+            <span class="level-badge">Level 12</span>
+          </div>
+          <div class="user-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+              alt="User Avatar"
+            />
+          </div>
+          <div class="user-info">
+            <span class="user-name">lucacamilleri</span>
+            <span class="user-title">Finance Master</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="user-progress">
+          <div class="user-avatar-large">
+            <img
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+              alt="User Avatar"
+            />
+          </div>
+          <div class="progress-container">
+            <div class="progress-info">
+              <span>Next level</span>
+              <span>67%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 67%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-menu">
+          <a href="dashboard.html" class="sidebar-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Overview</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-wallet"></i>
+            <span>Accounts</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-chart-pie"></i>
+            <span>Budgets</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-piggy-bank"></i>
+            <span>Savings</span>
+          </a>
+          <a href="#" class="sidebar-item active">
+            <i class="fas fa-briefcase"></i>
+            <span>Jobs</span>
+            <span class="badge">5</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-tasks"></i>
+            <span>Challenges</span>
+            <span class="badge">3</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-award"></i>
+            <span>Achievements</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-exchange-alt"></i>
+            <span>Transactions</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </div>
+
+        <div class="achievement-showcase">
+          <h3>Recent Achievements</h3>
+          <div class="achievements-grid">
+            <div
+              class="achievement-badge unlocked"
+              title="Budget Master: Created your first budget"
+            >
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <div
+              class="achievement-badge unlocked"
+              title="Saving Star: Reached first savings goal"
+            >
+              <i class="fas fa-star"></i>
+            </div>
+            <div
+              class="achievement-badge unlocked"
+              title="Job Hunter: Applied to 5 jobs"
+            >
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div
+              class="achievement-badge"
+              title="Interview Ready: Completed interview prep"
+            >
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div
+              class="achievement-badge"
+              title="Thrifty Spender: Stay under budget for 3 months"
+            >
+              <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <div
+              class="achievement-badge"
+              title="Financial Wizard: Maintain emergency fund"
+            >
+              <i class="fas fa-magic"></i>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Dashboard Content -->
+      <main class="dashboard-main">
+        <!-- Date and User Info Bar -->
+        <div class="mobile-dashboard-header">
+          <div class="header-user-info">
+            <div class="mobile-avatar">
+              <img
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80"
+                alt="User Avatar"
+              />
+            </div>
+            <div class="mobile-user-details">
+              <div class="mobile-user-name">lucacamilleri</div>
+              <div class="mobile-user-level">
+                <span class="mobile-level-badge">Level 12</span>
+                <span>Finance Master</span>
+              </div>
+            </div>
+          </div>
+          <div class="notification-bell">
+            <i class="far fa-bell"></i>
+            <span class="notification-badge">2</span>
+          </div>
+        </div>
+
+        <div class="dashboard-header">
+          <div class="date-display">
+            <i class="far fa-calendar-alt"></i>
+            <span>Tuesday, April 1, 2025</span>
+          </div>
+          <div class="header-actions">
+            <button class="challenge-btn job-tip-btn">
+              <i class="fas fa-lightbulb"></i>
+              Job Search Tips
+            </button>
+            <div class="notification-bell">
+              <i class="far fa-bell"></i>
+              <span class="notification-badge">2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industry Title -->
+        <div class="industry-heading">
+          <div class="industry-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="industry-text">
+            <h2>Software Engineering Jobs</h2>
+            <p>Personalized job matches based on your profile</p>
+          </div>
+        </div>
+
+        <!-- Job Search and Filters -->
+        <div class="dashboard-section jobs-search-section">
+          <div class="jobs-search-container">
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                placeholder="Search jobs..."
+                id="jobSearchInput"
+              />
+            </div>
+            <div class="job-filters">
+              <div class="job-filter">
+                <select id="jobType">
+                  <option value="all">Job Type</option>
+                  <option value="full-time">Full-Time</option>
+                  <option value="part-time">Part-Time</option>
+                  <option value="contract">Contract</option>
+                  <option value="internship">Internship</option>
+                </select>
+              </div>
+              <div class="job-filter">
+                <select id="experienceLevel">
+                  <option value="all">Experience</option>
+                  <option value="entry">Entry Level</option>
+                  <option value="mid">Mid Level</option>
+                  <option value="senior">Senior</option>
+                </select>
+              </div>
+              <div class="job-filter">
+                <select id="location">
+                  <option value="all">Location</option>
+                  <option value="remote">Remote</option>
+                  <option value="onsite">On-Site</option>
+                  <option value="hybrid">Hybrid</option>
+                </select>
+              </div>
+              <button class="filter-button">
+                <i class="fas fa-sliders-h"></i>
+                More Filters
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Listings -->
+        <div class="dashboard-section">
+          <div class="section-header">
+            <h2>Recommended Jobs</h2>
+            <div class="section-actions">
+              <div class="job-sort">
+                <span>Sort by:</span>
+                <select id="jobSort">
+                  <option value="relevance">Relevance</option>
+                  <option value="date">Date Posted</option>
+                  <option value="salary">Salary</option>
+                </select>
+              </div>
+              <span class="job-count">35 jobs found</span>
+            </div>
+          </div>
+
+          <div class="job-listings">
+            <!-- Job Card 1 - Featured -->
+            <div class="job-card featured-job">
+              <div class="job-card-header">
+                <div class="company-logo">
+                  <img
+                    src="https://logo.clearbit.com/microsoft.com"
+                    alt="Microsoft Logo"
+                  />
+                </div>
+                <div class="job-info">
+                  <h3 class="job-title">Junior Software Engineer</h3>
+                  <p class="company-name">Microsoft</p>
+                  <div class="job-meta">
+                    <span class="job-location"
+                      ><i class="fas fa-map-marker-alt"></i> Remote</span
+                    >
+                    <span class="job-type"
+                      ><i class="fas fa-briefcase"></i> Full-Time</span
+                    >
+                    <span class="salary-range"
+                      ><i class="fas fa-money-bill-wave"></i> $80,000 -
+                      $95,000</span
+                    >
+                  </div>
+                </div>
+                <div class="job-match">
+                  <div class="match-percent">95%</div>
+                  <div class="match-text">Match</div>
+                </div>
+              </div>
+              <div class="job-description">
+                <p>
+                  Join our dynamic team at Microsoft developing innovative
+                  solutions for cloud-based applications. This role is perfect
+                  for recent graduates with strong coding skills and a passion
+                  for technology.
+                </p>
+              </div>
+              <div class="job-skills">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Azure</span>
+                <span class="skill-tag">Git</span>
+              </div>
+              <div class="job-card-footer">
+                <span class="posted-date">Posted 2 days ago</span>
+                <div class="job-actions">
+                  <button class="save-job-btn">
+                    <i class="far fa-bookmark"></i> Save
+                  </button>
+                  <button class="apply-job-btn">Apply Now</button>
+                </div>
+              </div>
+              <div class="featured-badge">
+                <i class="fas fa-star"></i> Featured
+              </div>
+            </div>
+
+            <!-- Job Card 2 -->
+            <div class="job-card">
+              <div class="job-card-header">
+                <div class="company-logo">
+                  <img
+                    src="https://logo.clearbit.com/google.com"
+                    alt="Google Logo"
+                  />
+                </div>
+                <div class="job-info">
+                  <h3 class="job-title">Frontend Developer</h3>
+                  <p class="company-name">Google</p>
+                  <div class="job-meta">
+                    <span class="job-location"
+                      ><i class="fas fa-map-marker-alt"></i> Mountain View, CA
+                      (Hybrid)</span
+                    >
+                    <span class="job-type"
+                      ><i class="fas fa-briefcase"></i> Full-Time</span
+                    >
+                    <span class="salary-range"
+                      ><i class="fas fa-money-bill-wave"></i> $90,000 -
+                      $110,000</span
+                    >
+                  </div>
+                </div>
+                <div class="job-match">
+                  <div class="match-percent">88%</div>
+                  <div class="match-text">Match</div>
+                </div>
+              </div>
+              <div class="job-description">
+                <p>
+                  Build beautiful and responsive user interfaces for Google's
+                  next generation of web applications. Work with a team of
+                  talented designers and engineers to create seamless user
+                  experiences.
+                </p>
+              </div>
+              <div class="job-skills">
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">UI/UX</span>
+                <span class="skill-tag">TypeScript</span>
+              </div>
+              <div class="job-card-footer">
+                <span class="posted-date">Posted 1 week ago</span>
+                <div class="job-actions">
+                  <button class="save-job-btn">
+                    <i class="far fa-bookmark"></i> Save
+                  </button>
+                  <button class="apply-job-btn">Apply Now</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Job Card 3 -->
+            <div class="job-card">
+              <div class="job-card-header">
+                <div class="company-logo">
+                  <img
+                    src="https://logo.clearbit.com/amazon.com"
+                    alt="Amazon Logo"
+                  />
+                </div>
+                <div class="job-info">
+                  <h3 class="job-title">
+                    Software Development Engineer Intern
+                  </h3>
+                  <p class="company-name">Amazon</p>
+                  <div class="job-meta">
+                    <span class="job-location"
+                      ><i class="fas fa-map-marker-alt"></i> Seattle, WA</span
+                    >
+                    <span class="job-type"
+                      ><i class="fas fa-briefcase"></i> Internship</span
+                    >
+                    <span class="salary-range"
+                      ><i class="fas fa-money-bill-wave"></i> $35/hr</span
+                    >
+                  </div>
+                </div>
+                <div class="job-match">
+                  <div class="match-percent">92%</div>
+                  <div class="match-text">Match</div>
+                </div>
+              </div>
+              <div class="job-description">
+                <p>
+                  Summer internship opportunity to work on real products that
+                  impact millions of customers. Perfect for current students
+                  looking to gain industry experience in a fast-paced
+                  environment.
+                </p>
+              </div>
+              <div class="job-skills">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Data Structures</span>
+                <span class="skill-tag">Algorithms</span>
+              </div>
+              <div class="job-card-footer">
+                <span class="posted-date">Posted 3 days ago</span>
+                <div class="job-actions">
+                  <button class="save-job-btn">
+                    <i class="far fa-bookmark"></i> Save
+                  </button>
+                  <button class="apply-job-btn">Apply Now</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Job Card 4 -->
+            <div class="job-card">
+              <div class="job-card-header">
+                <div class="company-logo">
+                  <img
+                    src="https://logo.clearbit.com/salesforce.com"
+                    alt="Salesforce Logo"
+                  />
+                </div>
+                <div class="job-info">
+                  <h3 class="job-title">Full Stack Developer</h3>
+                  <p class="company-name">Salesforce</p>
+                  <div class="job-meta">
+                    <span class="job-location"
+                      ><i class="fas fa-map-marker-alt"></i> Remote</span
+                    >
+                    <span class="job-type"
+                      ><i class="fas fa-briefcase"></i> Full-Time</span
+                    >
+                    <span class="salary-range"
+                      ><i class="fas fa-money-bill-wave"></i> $95,000 -
+                      $120,000</span
+                    >
+                  </div>
+                </div>
+                <div class="job-match">
+                  <div class="match-percent">85%</div>
+                  <div class="match-text">Match</div>
+                </div>
+              </div>
+              <div class="job-description">
+                <p>
+                  Build and maintain full-stack applications for our enterprise
+                  customers. You'll work across the entire stack, from database
+                  design to frontend implementation and everything in between.
+                </p>
+              </div>
+              <div class="job-skills">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">Express</span>
+              </div>
+              <div class="job-card-footer">
+                <span class="posted-date">Posted 5 days ago</span>
+                <div class="job-actions">
+                  <button class="save-job-btn">
+                    <i class="far fa-bookmark"></i> Save
+                  </button>
+                  <button class="apply-job-btn">Apply Now</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Job Card 5 -->
+            <div class="job-card">
+              <div class="job-card-header">
+                <div class="company-logo">
+                  <img
+                    src="https://logo.clearbit.com/apple.com"
+                    alt="Apple Logo"
+                  />
+                </div>
+                <div class="job-info">
+                  <h3 class="job-title">iOS Developer</h3>
+                  <p class="company-name">Apple</p>
+                  <div class="job-meta">
+                    <span class="job-location"
+                      ><i class="fas fa-map-marker-alt"></i> Cupertino, CA</span
+                    >
+                    <span class="job-type"
+                      ><i class="fas fa-briefcase"></i> Full-Time</span
+                    >
+                    <span class="salary-range"
+                      ><i class="fas fa-money-bill-wave"></i> $100,000 -
+                      $130,000</span
+                    >
+                  </div>
+                </div>
+                <div class="job-match">
+                  <div class="match-percent">78%</div>
+                  <div class="match-text">Match</div>
+                </div>
+              </div>
+              <div class="job-description">
+                <p>
+                  Join the team that's changing how people interact with
+                  technology. Create beautiful and intuitive mobile experiences
+                  for Apple's iOS platform that will be used by millions.
+                </p>
+              </div>
+              <div class="job-skills">
+                <span class="skill-tag">Swift</span>
+                <span class="skill-tag">Objective-C</span>
+                <span class="skill-tag">UIKit</span>
+                <span class="skill-tag">Core Data</span>
+                <span class="skill-tag">XCode</span>
+              </div>
+              <div class="job-card-footer">
+                <span class="posted-date">Posted 1 week ago</span>
+                <div class="job-actions">
+                  <button class="save-job-btn">
+                    <i class="far fa-bookmark"></i> Save
+                  </button>
+                  <button class="apply-job-btn">Apply Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn">4</button>
+            <button class="pagination-btn">
+              <i class="fas fa-ellipsis-h"></i>
+            </button>
+            <button class="pagination-btn">10</button>
+            <button class="pagination-btn next-page">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Right Sidebar -->
+      <aside class="dashboard-right-sidebar">
+        <!-- Saved Jobs Section -->
+        <div class="sidebar-section">
+          <h3>Saved Jobs</h3>
+          <div class="saved-jobs-list">
+            <div class="saved-job-item">
+              <div class="saved-job-logo">
+                <img
+                  src="https://logo.clearbit.com/spotify.com"
+                  alt="Spotify Logo"
+                />
+              </div>
+              <div class="saved-job-info">
+                <h4>Backend Developer</h4>
+                <p>Spotify</p>
+              </div>
+              <div class="saved-job-actions">
+                <button class="quick-apply-btn">Apply</button>
+              </div>
+            </div>
+            <div class="saved-job-item">
+              <div class="saved-job-logo">
+                <img
+                  src="https://logo.clearbit.com/netflix.com"
+                  alt="Netflix Logo"
+                />
+              </div>
+              <div class="saved-job-info">
+                <h4>Software Engineer</h4>
+                <p>Netflix</p>
+              </div>
+              <div class="saved-job-actions">
+                <button class="quick-apply-btn">Apply</button>
+              </div>
+            </div>
+            <div class="saved-job-item">
+              <div class="saved-job-logo">
+                <img
+                  src="https://logo.clearbit.com/adobe.com"
+                  alt="Adobe Logo"
+                />
+              </div>
+              <div class="saved-job-info">
+                <h4>Frontend Developer</h4>
+                <p>Adobe</p>
+              </div>
+              <div class="saved-job-actions">
+                <button class="quick-apply-btn">Apply</button>
+              </div>
+            </div>
+          </div>
+          <button class="view-all-saved-btn">View All Saved Jobs</button>
+        </div>
+
+        <!-- Job Search Progress -->
+        <div class="sidebar-section">
+          <h3>Your Job Search Progress</h3>
+          <div class="job-progress-stats">
+            <div class="job-stat-card">
+              <div class="job-stat-value">12</div>
+              <div class="job-stat-label">Applications</div>
+            </div>
+            <div class="job-stat-card">
+              <div class="job-stat-value">3</div>
+              <div class="job-stat-label">Interviews</div>
+            </div>
+            <div class="job-stat-card">
+              <div class="job-stat-value">7</div>
+              <div class="job-stat-label">Saved Jobs</div>
+            </div>
+          </div>
+          <div class="application-activity">
+            <h4>Recent Activity</h4>
+            <div class="activity-timeline">
+              <div class="timeline-item">
+                <div class="timeline-icon interview">
+                  <i class="fas fa-user-friends"></i>
+                </div>
+                <div class="timeline-content">
+                  <p class="timeline-date">April 3, 2025</p>
+                  <p class="timeline-title">Interview Scheduled</p>
+                  <p class="timeline-details">
+                    Microsoft • Junior Software Engineer
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon application">
+                  <i class="fas fa-paper-plane"></i>
+                </div>
+                <div class="timeline-content">
+                  <p class="timeline-date">March 30, 2025</p>
+                  <p class="timeline-title">Application Submitted</p>
+                  <p class="timeline-details">Google • Frontend Developer</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon feedback">
+                  <i class="fas fa-comment-alt"></i>
+                </div>
+                <div class="timeline-content">
+                  <p class="timeline-date">March 28, 2025</p>
+                  <p class="timeline-title">Feedback Received</p>
+                  <p class="timeline-details">Amazon • Technical Interview</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Needed -->
+        <div class="sidebar-section">
+          <h3>Top Skills in Demand</h3>
+          <div class="skills-chart-container">
+            <canvas id="skillsChart"></canvas>
+          </div>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-name">JavaScript</div>
+              <div class="skill-bar-container">
+                <div class="skill-bar" style="width: 85%"></div>
+              </div>
+              <div class="skill-percent">85%</div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">React</div>
+              <div class="skill-bar-container">
+                <div class="skill-bar" style="width: 78%"></div>
+              </div>
+              <div class="skill-percent">78%</div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">Python</div>
+              <div class="skill-bar-container">
+                <div class="skill-bar" style="width: 65%"></div>
+              </div>
+              <div class="skill-percent">65%</div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">Node.js</div>
+              <div class="skill-bar-container">
+                <div class="skill-bar" style="width: 62%"></div>
+              </div>
+              <div class="skill-percent">62%</div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">AWS</div>
+              <div class="skill-bar-container">
+                <div class="skill-bar" style="width: 58%"></div>
+              </div>
+              <div class="skill-percent">58%</div>
+            </div>
+          </div>
+          <button class="skills-courses-btn">
+            Find Courses to Build Skills
+          </button>
+        </div>
+
+        <!-- Finance Tip for Job Search -->
+        <div class="sidebar-section">
+          <h3>Financial Tip for Job Seekers</h3>
+          <div class="finance-tip">
+            <div class="tip-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <p class="tip-text">
+              When evaluating job offers, remember to consider the total
+              compensation package including benefits, not just the base salary.
+            </p>
+            <button class="next-tip-btn">Next Tip</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <div class="mobile-nav-container">
+        <a href="dashboard.html" class="mobile-nav-item">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+          <i class="fas fa-wallet"></i>
+          <span>Budget</span>
+        </a>
+        <a href="#" class="mobile-nav-item active">
+          <i class="fas fa-briefcase"></i>
+          <span>Jobs</span>
+        </a>
+        <a href="#" class="mobile-nav-item">
+          <i class="fas fa-piggy-bank"></i>
+          <span>Savings</span>
+        </a>
+        <a href="#" id="mobileSidebarToggle" class="mobile-nav-item">
+          <i class="fas fa-bars"></i>
+          <span>More</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Sidebar Menu -->
+    <div class="mobile-sidebar-menu" id="mobileSidebarMenu">
+      <div class="mobile-sidebar-content">
+        <div class="mobile-sidebar-header">
+          <h2>MyMoneyMate</h2>
+          <button id="closeSidebar" class="close-sidebar">&times;</button>
+        </div>
+        <div class="mobile-user-profile">
+          <div class="mobile-user-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+              alt="User Avatar"
+            />
+          </div>
+          <div class="mobile-user-info">
+            <div class="mobile-user-name">lucacamilleri</div>
+            <div class="mobile-level-badge">Level 12</div>
+            <div class="mobile-user-title">Finance Master</div>
+          </div>
+          <div class="mobile-user-progress">
+            <div class="progress-info">
+              <span>Next level</span>
+              <span>67%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 67%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <a href="dashboard.html" class="sidebar-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Overview</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-wallet"></i>
+            <span>Accounts</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-chart-pie"></i>
+            <span>Budgets</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-piggy-bank"></i>
+            <span>Savings</span>
+          </a>
+          <a href="#" class="sidebar-item active">
+            <i class="fas fa-briefcase"></i>
+            <span>Jobs</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-tasks"></i>
+            <span>Challenges</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-award"></i>
+            <span>Achievements</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-exchange-alt"></i>
+            <span>Transactions</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+          <a href="index.html" class="sidebar-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot Floating Action Button -->
+    <div class="chat-button" id="chatButton">
+      <div class="chat-icon">
+        <i class="fas fa-comment"></i>
+      </div>
+    </div>
+    <div class="chat-popup" id="chatPopup">
+      <div class="chat-header">
+        <h3>FinBot</h3>
+        <button id="closeChat"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="bot-message">
+          <p>
+            Hi there! 👋 I'm FinBot, your personal finance assistant. I see
+            you're looking at job opportunities. Need help calculating potential
+            salary impacts on your budget?
+          </p>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="userMessage"
+          placeholder="Type your question..."
+        />
+        <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/jobs.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
