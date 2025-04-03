@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         jobListingsContainer.innerHTML = jobs.map(job => `
-            <div class="job-card ${job.isFeatured ? 'featured-job' : ''}" data-job-id="${job.id}">
+            <div class="job-card ${job.isFeatured ? 'featured-job' : ''}" id="${job.id}">
                 ${job.isFeatured ? '<div class="featured-badge"><i class="fas fa-star"></i> Featured</div>' : ''}
                 <div class="job-card-header">
                     <div class="company-logo">
@@ -219,10 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="job-card-footer">
                     <div class="posted-date">${job.postedDate}</div>
                     <div class="job-actions">
-                        <button class="save-job-btn ${job.isSaved ? 'saved' : ''}" data-job-id="${job.id}">
+                        <button class="save-job-btn ${job.isSaved ? 'saved' : ''}" id="${job.id}">
                             <i class="far fa-heart"></i> ${job.isSaved ? 'Saved' : 'Save'}
                         </button>
-                        <button class="apply-job-btn" data-job-id="${job.id}">Apply Now</button>
+                        <button class="apply-job-btn" id="${job.id}">Apply Now</button>
                     </div>
                 </div>
             </div>
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         savedJobsContainer.innerHTML = savedJobs.map(job => `
-            <div class="saved-job-item" data-job-id="${job.id}">
+            <div class="saved-job-item" id="${job.id}">
                 <div class="saved-job-logo">
                     <img src="${job.logo}" alt="${job.company} logo">
                 </div>
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
         recommendedList.classList.add('recommended-jobs-list');
         
         recommendedList.innerHTML = recommendedJobs.map(job => `
-            <div class="recommended-job-item" data-job-id="${job.id}">
+            <div class="recommended-job-item" id="${job.id}">
                 <div class="recommended-job-header">
                     <div class="recommended-job-logo">
                         <img src="${job.logo}" alt="${job.company} logo">
@@ -429,10 +429,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="job-detail-footer">
-                    <button class="save-job-btn ${job.isSaved ? 'saved' : ''}" data-job-id="${job.id}">
+                    <button class="save-job-btn ${job.isSaved ? 'saved' : ''}" id="${job.id}">
                         <i class="${job.isSaved ? 'fas' : 'far'} fa-heart"></i> ${job.isSaved ? 'Saved' : 'Save'}
                     </button>
-                    <button class="apply-job-btn" data-job-id="${job.id}">Apply Now</button>
+                    <button class="apply-job-btn" id="${job.id}">Apply Now</button>
                 </div>
             </div>
         `;
@@ -509,7 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         jobListingsContainer.innerHTML = filteredJobs.map(job => `
-            <div class="job-card ${job.isFeatured ? 'featured-job' : ''}" data-job-id="${job.id}">
+            <div class="job-card ${job.isFeatured ? 'featured-job' : ''}" id="${job.id}">
                 ${job.isFeatured ? '<div class="featured-badge"><i class="fas fa-star"></i> Featured</div>' : ''}
                 <div class="job-card-header">
                     <div class="company-logo">
@@ -538,10 +538,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="job-card-footer">
                     <div class="posted-date">${job.postedDate}</div>
                     <div class="job-actions">
-                        <button class="save-job-btn ${job.isSaved ? 'saved' : ''}" data-job-id="${job.id}">
+                        <button class="save-job-btn ${job.isSaved ? 'saved' : ''}" id="${job.id}">
                             <i class="${job.isSaved ? 'fas' : 'far'} fa-heart"></i> ${job.isSaved ? 'Saved' : 'Save'}
                         </button>
-                        <button class="apply-job-btn" data-job-id="${job.id}">Apply Now</button>
+                        <button class="apply-job-btn" id="${job.id}">Apply Now</button>
                     </div>
                 </div>
             </div>

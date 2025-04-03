@@ -56,7 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
         messageDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
         
         const messageText = document.createElement('p');
-        messageText.textContent = text;
+        // Use innerHTML for messages that may contain HTML
+        messageText.innerHTML = text;
         
         messageDiv.appendChild(messageText);
         chatMessages.appendChild(messageDiv);
@@ -75,7 +76,10 @@ document.addEventListener('DOMContentLoaded', function() {
             response = "Setting savings goals is a great idea! You can create specific goals and track your progress over time.";
         } else if (userText.toLowerCase().includes('discount') || userText.toLowerCase().includes('deal')) {
             response = "We have a section dedicated to student discounts! Check out the 'Student Discounts' feature to find deals on everything from software to food.";
-        } else {
+        } else if (userText.toLowerCase().includes('website')) {
+            response = `Take a look at our <a href='jobs.html#1' class='job-link id='1'>available job offers</a> for Web Development.`;
+            
+        }else {
             response = "Thanks for your message! Our full financial advice features will be available in the next version. Is there anything specific about student finances you'd like to know?";
         }
         
